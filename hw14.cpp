@@ -24,19 +24,19 @@ int main() {
 
 	cout << "Part 2" << endl;
 	cout << "Linked List 1 copy constructor: ";
-	LinkedList<int> * list2ptr = new LinkedList<int>(list);
-	list2ptr->changeHead();
+	LinkedList<int> list2 = list;
+	list2.changeHead();
 	cout << "Linked List 1: ";
 	list.print();
 	cout << "Linked List 2: ";
-	list2ptr->print();
+	list2.print();
 	cout << "Linked List 1 copy assignment: ";
-	LinkedList<int> * list3ptr = new LinkedList<int>();
-	*(list3ptr) = list;
+	LinkedList<int> list3;
+	list3 = list;
 	cout << "Linked List 1: ";
 	list.print();
 	cout << "Linked List 3: ";
-	list3ptr->print();
+	list3.print();
 
 	return 0;
 }

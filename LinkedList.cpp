@@ -11,8 +11,8 @@
 template <typename T>
 LinkedList<T>::LinkedList(){
 	size = 0;
-	head = nullptr;
-	tail = nullptr;
+	head = 0;
+	tail = 0;
 }
 //Destructor
 template <typename T>
@@ -29,20 +29,17 @@ LinkedList<T>::~LinkedList(){
 template <typename T>
 LinkedList<T>::LinkedList(const LinkedList<T> &list){
 
-	Node<T> * ptr = new Node<T>();
-	ptr->data = list.head->data;
-	Node<T> * listptr = list.head;
-
-	head = ptr;
 	size = list.size;
+	//Setting head and tail to 0 here but they will be overridden by prepend();
+	head = 0;
+	tail = 0;
+
+
+	Node<T> * ptr = list.head;
 	for(int i = 0; i < size; i++){
-		listptr = listptr->next;
-		ptr->next = new Node<T>();
-		ptr->next->data = listptr->data;
-		ptr->next->prev = ptr;
+		prepend(ptr->data);
 		ptr = ptr->next;
 	}
-	tail = ptr;
 }
 //Copy assignment operator
 /*template <typename T>
@@ -54,7 +51,7 @@ LinkedList<T>::LinkedList<T>& operator = (const LinkedList<T> &list){
 //Add a node to the front of the linked list
 template <typename T>
 void LinkedList<T>::append(T data){
-	Node<T> * Nodeptr = new Node<T>(data, nullptr, nullptr);
+	Node<T> * Nodeptr = new Node<T>(data, 0, 0);
 	if(size != 0){
 		Nodeptr->next = head;
 		head->prev = Nodeptr;
@@ -68,7 +65,7 @@ void LinkedList<T>::append(T data){
 //Add a node to the end of the linked list
 template <typename T>
 void LinkedList<T>::prepend(T data){
-	Node<T> * Nodeptr = new Node<T>(data, nullptr, nullptr);
+	Node<T> * Nodeptr = new Node<T>(data, 0, 0);
 	if(size != 0){
 		Nodeptr->prev = tail;
 		tail->next = Nodeptr;
@@ -81,7 +78,7 @@ void LinkedList<T>::prepend(T data){
 
 template <typename T>
 void LinkedList<T>::insertNode(int index, T data){
-	Node<T> * Nodeptr = new Node<T>(data, nullptr, nullptr);
+	Node<T> * Nodeptr = new Node<T>(data, 0, 0);
 	if(index == 0){
 		append(Nodeptr);
 

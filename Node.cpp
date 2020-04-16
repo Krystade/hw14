@@ -11,8 +11,8 @@
 template <typename T>
 Node<T>::Node(){
 	this->data = *(new T());
-	next = nullptr;
-	prev = nullptr;
+	next = 0;
+	prev = 0;
 }
 
 template <typename T>
