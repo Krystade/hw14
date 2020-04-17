@@ -18,7 +18,7 @@ LinkedList<T>::LinkedList(){
 template <typename T>
 LinkedList<T>::~LinkedList(){
 	Node<T> * ptr = head;
-	for(int i = 0; i < size; i++){
+	for(int i = 0; i < size - 1; i++){
 		ptr = ptr->next;
 		delete ptr->prev;
 	}
@@ -29,23 +29,35 @@ LinkedList<T>::~LinkedList(){
 template <typename T>
 LinkedList<T>::LinkedList(const LinkedList<T> &list){
 
-	size = list.size;
+	size = 0;
 	//Setting head and tail to 0 here but they will be overridden by prepend();
 	head = 0;
 	tail = 0;
 
 
 	Node<T> * ptr = list.head;
-	for(int i = 0; i < size; i++){
+	for(int i = 0; i < list.size; i++){
 		prepend(ptr->data);
 		ptr = ptr->next;
 	}
 }
 //Copy assignment operator
-/*template <typename T>
-LinkedList<T>::LinkedList<T>& operator = (const LinkedList<T> &list){
+template <typename T>
+LinkedList<T>& LinkedList<T>::operator = (const LinkedList<T> &list){
+
+	size = 0;
+	//Setting head and tail to 0 here but they will be overridden by prepend();
+	head = 0;
+	tail = 0;
+
+
+	Node<T> * ptr = list.head;
+	for(int i = 0; i < list.size; i++){
+		prepend(ptr->data);
+		ptr = ptr->next;
+	}
 	return *this;
-}*/
+}
 
 
 //Add a node to the front of the linked list

@@ -25,9 +25,7 @@ public:
 	//Copy Constructor
 	LinkedList(const LinkedList<T> &list);
 	//Copy assignment operator
-	LinkedList<T>& operator = (const LinkedList<T> &list){
-		return *this;
-	}
+	LinkedList<T>& operator = (const LinkedList<T> &list);
 
 	//Function to add a node to the front of the list
 	void append(T data);
@@ -40,7 +38,6 @@ public:
 	//Prints out all the nodes and their data
 	void print();
 
-	void changeHead(){cout << head->data;}
 };
 
 

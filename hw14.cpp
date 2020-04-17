@@ -25,18 +25,19 @@ int main() {
 	cout << "Part 2" << endl;
 	cout << "Linked List 1 copy constructor: ";
 	LinkedList<int> list2 = list;
-	list2.changeHead();
-	cout << "Linked List 1: ";
+	list2.print();
+	/*cout << "Linked List 1: ";
 	list.print();
 	cout << "Linked List 2: ";
-	list2.print();
+	list2.print();*/
 	cout << "Linked List 1 copy assignment: ";
 	LinkedList<int> list3;
 	list3 = list;
-	cout << "Linked List 1: ";
-	list.print();
-	cout << "Linked List 3: ";
 	list3.print();
 
+	/*cout << "Linked List 1: ";
+	list.print();
+	cout << "Linked List 3: ";
+	list3.print();*/
 	return 0;
 }
