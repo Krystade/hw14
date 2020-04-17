@@ -37,6 +37,8 @@ public:
 	void removeNode(int index);
 	//Prints out all the nodes and their data
 	void print();
+	//Returns a LinkedList object with the values reversed
+	LinkedList<T> reverse();
 
 };
 

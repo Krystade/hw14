@@ -92,13 +92,13 @@ template <typename T>
 void LinkedList<T>::insertNode(int index, T data){
 	Node<T> * Nodeptr = new Node<T>(data, 0, 0);
 	if(index == 0){
-		append(Nodeptr);
+		append(data);
 
 	}else if(index == size){
-		prepend(Nodeptr);
+		prepend(data);
 	}else{
 		Node<T> * ptr = head;
-		for(int i = 1; i < index; i++){
+		for(int i = 0; i < index; i++){
 			ptr = ptr->next;
 		}
 		ptr->prev->next = Nodeptr;
@@ -136,3 +136,16 @@ void LinkedList<T>::print(){
 	}
 	cout << endl;
 }
+
+
+template <typename T>
+LinkedList<T> LinkedList<T>::reverse(){
+	LinkedList<T> listReverse;
+	Node<T> * ptr = this->head;
+	for(int i = 0; i < this->size; i++){
+		listReverse.append(ptr->data);
+		ptr = ptr->next;
+	}
+	return listReverse;
+}
+
